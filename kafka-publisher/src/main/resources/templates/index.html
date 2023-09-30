@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Kafka Producer</title>
+    <style type="text/css">
+        label {
+            display: inline-block;
+            width: 200px;
+            margin: 5px;
+            text-align: left;
+        }
+        input[type=text], input[type=email], input[type=password], select {
+            display: inline-block;
+            width: 200px;
+        }
+        input[type=radio] {
+            margin-left: 45px;
+        }
+        input[type=checkbox] {
+            margin-right: 190px;
+        }
+        button {
+            padding: 5px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <div style="border-style:solid; width:500px">
+        <h1>Kafka Producer Example</h1>
+        <form
+                role="form"
+                method="post"
+                th:action="@{/producer/publishUser/save}"
+                th:object="${userForm}"
+        >
+            <label>First name:</label>
+            <input type="text" th:field = "*{firstname}" />
+            <br />
+            <label>Last name:</label>
+            <input type="text" th:field = "*{lastname}" />
+            <br />
+            <label>Address:</label>
+            <textarea rows="5" cols="25" th:field="*{address}">
+            </textarea>
+            <br />
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
